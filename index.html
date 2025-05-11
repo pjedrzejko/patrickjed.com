@@ -23,6 +23,61 @@
 
     <!-- Import CSS: Main Stylesheet -->
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <style>
+      .email-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        color: inherit;
+      }
+      
+      .email-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+      }
+      
+      .email-popup-content {
+        position: relative;
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        width: 300px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .close-popup {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #666;
+      }
+      
+      .copy-button {
+        margin-top: 15px;
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      
+      .copy-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
   </head>
 
   <body>
@@ -56,12 +111,12 @@
           <a aria-label="My Github Profile" target="_blank" href="https://github.com/pjedrzejko">
             <i class="icon fa fa-github-alt" aria-hidden="true"></i>
           </a>
-          <a aria-label="My Résumé" target="_blank" href="https://www.adityavsingh.com/resume.htm">
-            <i class="icon fa fa fa-file-pdf-o" aria-hidden="true"></i>
+          <a aria-label="My Résumé" target="_blank" href="https://www.adityavsingh.com/resume.html">
+            <i class="icon fa fa-file-pdf-o" aria-hidden="true"></i>
           </a>
-          <a aria-label="Send Email" href="mailto:patrickjedrzejko@gmail.com" target="_blank"
-            ><i class="icon fa fa-envelope"></i
-          ></a>
+          <button aria-label="Show Email" onclick="showEmailPopup()" class="email-button">
+            <i class="icon fa fa-envelope"></i>
+          </button>
         </div>
         <div class="header-links">
           <a class="link" href="#about" data-scroll>About Me</a>
@@ -69,6 +124,15 @@
         </div>
       </div>
       <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
+    </div>
+
+    <!-- Email Popup -->
+    <div id="emailPopup" class="email-popup">
+      <div class="email-popup-content">
+        <span class="close-popup" onclick="closeEmailPopup()">&times;</span>
+        <p>patrickjedrzejko@gmail.com</p>
+        <button onclick="copyEmail()" class="copy-button">Copy Email</button>
+      </div>
     </div>
 
     <!-- About Section -->
@@ -288,5 +352,33 @@
     <script src="./assets/js/google-analytics.js"></script>
     <!-- Import JS: Main Script -->
     <script src="./assets/js/main.js"></script>
+    <script>
+      function showEmailPopup() {
+        document.getElementById('emailPopup').style.display = 'block';
+      }
+
+      function closeEmailPopup() {
+        document.getElementById('emailPopup').style.display = 'none';
+      }
+
+      function copyEmail() {
+        const email = 'patrickjedrzejko@gmail.com';
+        navigator.clipboard.writeText(email).then(() => {
+          const copyButton = document.querySelector('.copy-button');
+          copyButton.textContent = 'Copied!';
+          setTimeout(() => {
+            copyButton.textContent = 'Copy Email';
+          }, 2000);
+        });
+      }
+
+      // Close popup when clicking outside
+      window.onclick = function(event) {
+        const popup = document.getElementById('emailPopup');
+        if (event.target === popup) {
+          closeEmailPopup();
+        }
+      }
+    </script>
   </body>
 </html>
