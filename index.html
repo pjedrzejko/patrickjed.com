@@ -290,17 +290,14 @@
           >
         </div>
       </div>
-<!--
-      # User Project #3: COVID-19 Tracker App 
+
+      <!-- # User Project #3: In-Aisle Assistance Hackathon -->
       <div class="user-projects">
         <div class="images-right">
-          <picture>
-            <source type="image/webp" srcset="./assets/img/webp/COVID19-Tracker-App.webp" alt="COVID-19 Tracker App" />
-            <img alt="COVID-19 Tracker App" src="./assets/img/jpg/COVID19-Tracker-App.jpg" />
-          </picture>
+            <img alt="COVID-19 Tracker App" src="./assets/img/jpg/HackathonPicture.png" />
         </div>
         <div class="contents" style="text-align: center">
-          <h3>COVID-19 Tracker App</h3>
+          <h3>In-Aisle Assistance Hackathon</h3>
           <div>
             <img
               height="32"
@@ -310,16 +307,14 @@
             />
           </div>
           <p style="text-align: justify">
-            I created a web application for tracking the spread of COVID-19. Using Johns Hopkins University Center For
-            Systems Science and Engineering API, the website processes the COVID-19 data to create statistical
-            projections through graphs and charts.
+            During 'Hack the Aisle' 2025, I served as a Scrum Master while bringing QR-code assistance to the Canadian market. 
           </p>
-          <a class="project-link" target="_blank" href="https://www.adityavsingh.com/covid19-tracker-app">
+          <a class="project-link" href="#" onclick="openVideoModal(event)">
             Check it out!
           </a>
         </div>
       </div>
-
+<!--
       # Use Project #4: Valuto: Account Management System 
       <div class="user-projects">
         <div class="images-left">
@@ -356,6 +351,19 @@
     </section>
   -->
 
+    <!-- ADD THE VIDEO MODAL HTML RIGHT HERE -->
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+      <span class="video-close" onclick="closeVideoModal()">&times;</span>
+      <div class="video-modal-content">
+        <video id="modalVideo" controls>
+          <source src="./assets/img/HacktheAisle.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <!-- END VIDEO MODAL -->
+
     <footer class="footer">
       <p>&copy; Patrick Jedrzejko, 2025</p>
     </footer>
@@ -368,6 +376,9 @@
     <script src="./assets/js/google-analytics.js"></script>
     <!-- Import JS: Main Script -->
     <script src="./assets/js/main.js"></script>
+
+    <script src="./assets/js/video-modal.js"></script>
+    
     <script>
       function showEmailPopup(event) {
         event.stopPropagation();
