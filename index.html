@@ -259,7 +259,7 @@
       </div>
         -->
 
-      <!-- User Project #2: Summer 2020 Project -->
+      <!-- User Project #2 -->
       <div class="user-projects">
         <div class="images-left">
           <img alt="Pulse Hackathon" src="./assets/img/jpg/PulseHackathon.jpeg" />
@@ -276,7 +276,7 @@
           <img
             height="32"
             width="32"
-            src="https://unpkg.com/simple-icons@3.4.0/icons/css3.svg"
+            src="https://unpkg.com/simple-icons@3.4.0/icons/python.svg"
             style="filter: invert(33%) sepia(29%) saturate(3844%) hue-rotate(184deg) brightness(90%) contrast(84%)"
           />
           &nbsp;
@@ -303,13 +303,17 @@
             <img
               height="32"
               width="32"
-              src="https://unpkg.com/simple-icons@3.4.0/icons/javascript.svg"
-              style="filter: invert(96%) sepia(47%) saturate(4151%) hue-rotate(338deg) brightness(100%) contrast(95%)"
+              src="./assets/img/jpg/java.png"
             />
+              <img
+                      height="32"
+                      width="32"
+                      src="./assets/img/jpg/agile.png"
+              />
           </div>
           <p style="text-align: justify">
-            During 'Hack the Aisle' 2025, I led project coordination for a 10-person cross-functional team developing a QR-code retail assistance
-            solution for the Canadian market. I facilitated daily standups, managed task prioritization, and ensured seamless communication between 
+            During 'Hack the Aisle' 2025, I led project coordination for a cross-functional team developing a retail assistance
+            solution. I facilitated daily standups, managed task prioritization, and ensured seamless communication between
             FE/BE developers, architects, UX designers, and QAs to deliver a working prototype to senior management within the 3-day timeframe. This 
             experience strengthened my project coordination skills and expanded my proficiency with the Atlassian Suite for agile project management.
           </p>
@@ -318,42 +322,46 @@
           </a> -->
         </div>
       </div>
-<!--
-      # Use Project #4: Valuto: Account Management System 
+
+      <!-- # Use Project #4: Last Minute Allocation -->
       <div class="user-projects">
         <div class="images-left">
           <picture>
             <source
-              type="image/webp"
-              srcset="./assets/img/webp/Valuto-Account-Management.webp"
-              alt="Valuto: Account Management System"
+              type="image/mp4"
+              srcset="./assets/img/allocation.mp4"
+              alt="Allocation Game"
             />
-            <img alt="Valuto: Account Management System" src="./assets/img/jpg/Valuto-Account-Management.jpg" />
+            <img alt="Allocation Game" src="./assets/img/jpg/allocation.png" />
           </picture>
         </div>
         <div class="contents-right" style="text-align: center">
-          <h3>Valuto: Account Management System</h3>
+          <h3>Last Minute Allocation Game</h3>
           <div>
             <img
               height="32"
               width="32"
-              src="https://unpkg.com/simple-icons@3.4.0/icons/cplusplus.svg"
+              src="https://unpkg.com/simple-icons@3.4.0/icons/javascript.svg"
               style="filter: invert(22%) sepia(77%) saturate(1486%) hue-rotate(183deg) brightness(101%) contrast(103%)"
             />
           </div>
           <p style="text-align: justify">
-            I developed a CLI system for accounting management and financial statement maintenance. The purpose of the
-            system is to maintain a record of the funds received, used, disseminated and donated by an organization.
-            Details of transactions and maintenance of a budget and tallying of current balance/inventory in cash/kind
-            is incorporated in this system.
+              I developed a game to visualize the supply chain concept of last minute stock allocations. This game
+              illustrates the dynamic process of distribution available inventory to meet urgent demand changes
+              and unexpected disruptions.
           </p>
-          <a class="project-link" target="_blank" href="https://github.com/AVS1508/Valuto-Account-Management-System">
-            Check it out!
-          </a>
+            <div class="project-buttons">
+                <a class="project-link" target="_blank" href="https://github.com/pjedrzejko/AllocationGame">
+                    Check it out!
+                </a>
+                <a class="project-link" href="#" onclick="openVideoModal(event)">
+                    View Demo
+                </a>
+            </div>
         </div>
       </div>
     </section>
-  -->
+
 
     <!-- ADD THE VIDEO MODAL HTML RIGHT HERE -->
     <!-- Video Modal -->
@@ -361,7 +369,7 @@
       <span class="video-close" onclick="closeVideoModal()">&times;</span>
       <div class="video-modal-content">
         <video id="modalVideo" controls>
-          <source src="./assets/img/HacktheAisle.mp4" type="video/mp4">
+          <source src="./assets/img/allocation.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -420,6 +428,30 @@
             copyButton.textContent = 'Copy Email';
           }, 2000);
         });
+
+          function openVideoModal(event) {
+              event.preventDefault();
+              const modal = document.getElementById('videoModal');
+              const video = document.getElementById('modalVideo');
+              modal.style.display = 'block';
+              video.play();
+          }
+
+          function closeVideoModal() {
+              const modal = document.getElementById('videoModal');
+              const video = document.getElementById('modalVideo');
+              modal.style.display = 'none';
+              video.pause();
+              video.currentTime = 0;
+          }
+
+// Close modal when clicking outside the video
+          window.onclick = function(event) {
+              const modal = document.getElementById('videoModal');
+              if (event.target === modal) {
+                  closeVideoModal();
+              }
+          }
       }
     </script>
   </body>
